@@ -2,7 +2,7 @@
 ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black) 
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)
 
-> An educational C program highlighting HEAP usage & how to free the memory after usage.
+> An educational C program highlighting heap usage & how to free the memory after usage.
 
 ## Table of Contents
 - [Description](#description)
@@ -17,7 +17,14 @@
 - [License](#license)
 
 ## Description
-The HEAP Hotel project is designed to demonstrate a simple C programming project. It serves as a foundation for exploring the capabilities of the C language and its applications in various domains. It specificially highlights using the HEAP and freeing memory after its usage.
+The HEAP Hotel project is designed to demonstrate a simple C programming project. It serves as a foundation for exploring the capabilities of the C language and its applications in various domains. It specificially highlights using the heap and freeing memory after its usage:
+
+Definition:
+```quote
+In C programming, the Heap (not an acronym, just a name for a "pile" of memory) is a region of your computer's RAM used for dynamic memory allocation.
+
+Unlike the Stack, which handles local variables automatically, the Heap is a "free-for-all" area where you, the programmer, manually request and release memory during the execution of a program.
+```
 
 ## Demo/Screenshots
 ![Main Menui](screenshots/TheHEAPHotel1.png)
