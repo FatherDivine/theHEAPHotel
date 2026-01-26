@@ -17,7 +17,7 @@
 - [License](#license)
 
 ## Description
-The HEAP Hotel project is designed to demonstrate a simple C programming project. It serves as a foundation for exploring the capabilities of the C language and its applications in various domains. It specificially highlights using the heap and freeing memory after its usage:
+The HEAP Hotel project is designed to demonstrate a simple C programming project. It specificially highlights using the heap and freeing memory after its usage.
 
 Definition:
 ```quote
