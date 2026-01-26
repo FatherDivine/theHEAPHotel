@@ -4,6 +4,7 @@
  * For the naabs: compile in linux via cli: "gcc theHEAPHotel.c" && execute a.out
 */
 #include <stdio.h>	// printf, scanf, getline
+#include <stdint.h> // for uint8_t
 #include <stdlib.h> // for HEAP, free, malloc, realloc
 #include <unistd.h> // for getcwd
 #include <limits.h> // for PATH_MAX
@@ -11,9 +12,9 @@
 #define MAX_ROOMS 5
 
 struct GuestStatus {
-	unsigned int menu_choice	: 3; // Max 7
-	unsigned int is_cleared		: 1; // 0 or 1
-	unsigned int total_books	: 4; // Max 15
+	uint8_t menu_choice		: 3; // Max 7
+	uint8_t is_cleared		: 1; // 0 or 1
+	uint8_t total_books		: 4; // Max 15
 } __attribute__((packed));
 
 // Array of 5 "room keys"
