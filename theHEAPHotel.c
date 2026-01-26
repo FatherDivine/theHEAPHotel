@@ -11,6 +11,10 @@
 
 #define MAX_ROOMS 5
 
+// BIT-FIELDS: We are manually defining exactly how many bits each variable uses.
+// 'menu_choice : 3' means it uses only 3 bits (binary 111 = 7).
+// If we tried to store the number 8 (binary 1000), it would overflow!
+// '__attribute__((packed))' tells the compiler not to add empty "padding" bytes between variables.
 struct GuestStatus {
 	uint8_t menu_choice		: 3; // Max 7
 	uint8_t is_cleared		: 1; // 0 or 1
@@ -22,8 +26,12 @@ char *rooms[MAX_ROOMS] = {NULL};
 
 
 void booking(struct GuestStatus *status){
-	// "size = 0" == Telling the computer: "I don't have a room yet, please build one for me."
+/* 
+	* 'size' tracks the capacity of the buffer. 
+    * Setting it to 0 tells getline: "I have no memory allocated yet, please malloc it for me."
+*/
 	size_t size = 0;
+
 	int room_found = -1;
 
 	// Find the first empty room (NULL)
@@ -40,11 +48,16 @@ void booking(struct GuestStatus *status){
 	}
 
 	printf("\nEnter guest name for Room #%d: ", room_found + 1);
+/* 
+	* KEY CONCEPT: We pass the ADDRESS of the pointer (&rooms[...]).
+    * This allows getline to modify the pointer inside our array to point 
+    * to the new memory it allocates.
+*/
 	if (getline(&rooms[room_found], &size, stdin) != -1){			
 	
 		// Update our bit-field stats
-		status->total_books++; // Add a booking on using pointer
-		status->is_cleared = 0; // They are checked in (not cleared)
+		status->total_books++; 		// Add a booking on using pointer
+		status->is_cleared = 0; 	// They are checked in (not cleared)
 		
 		printf("Success! Room %d booked.\n", room_found + 1);
 	}
@@ -57,7 +70,10 @@ void checkout(struct GuestStatus *status){
 	scanf("%d", &roomNum);
 
 	// Clearing the buffer the 'C' way
-	while (getchar() != '\n' && getchar() != EOF); // "Eats" the leftovers
+	// SCUBBER: scanf leaves the 'Enter' key (\n) in the input stream.
+	// This loop reads and discards characters until the newline is gone.
+	// Without this, the next 'getline' would instantly read that leftover newline and skip prompting the user.
+	while (getchar() != '\n' && getchar() != EOF);
 	
 	int i = roomNum - 1;	// Adjust for 0-based array
 
@@ -80,6 +96,9 @@ void mass_checkout(struct GuestStatus *status){
 			printf("Evicting and freeing Room %d: %s", i + 1, rooms[i]);
 			free(rooms[i]);
 			rooms[i] = NULL;
+			// CRITICAL STEP: We manually set the pointer to NULL immediately after freeing.
+			// This prevents "Double Free" errors (crashing by freeing twice) 
+			// and ensures our "if (rooms[i] == NULL)" checks works correctly later.
 		}
 	}
 	status->total_books = 0;
