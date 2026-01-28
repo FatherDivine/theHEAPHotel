@@ -86,4 +86,4 @@ Great tools I learned about along the way to help C coders:
 | **GDB** | Logic Debugging | When your code runs but gives the wrong math. |
 | **Cppcheck** | Bug Hunting | Before you even run the code. |
 | **ASan** | Memory Crashes | To find exactly where a "Segfault" happened. |
-| **Flawfinder** | Vuln Scanner | Scans code for CWE (Common Weakness Enumerations). |
+| **Flawfinder** | Vulnerability Scanner | Scans code for CWE (Common Weakness Enumerations). |
