@@ -79,13 +79,11 @@ The theHEAPHotel project is licensed under the MIT License. See the LICENSE file
 
 Great tools I learned about along the way to help C coders:
 
-Tool		Purpose			When to use it
-valgrind	Memory Leaks	When you suspect malloc isn't being free'd (or heap/stack in general).
 
-GDB	Logic 	Debugging		When your code runs but gives the wrong math.
-
-cppcheck	Bug Hunting		Before you even run the code.
-
-ASan		Memory Crashes	To find exactly where a "Segfault" happened.
-
-flawfinder  vuln scanner	Scans code for CWE (Common Weakness Enumerations), things hackers would use to sploit your program (like scanf without length limits)
+| Tool | Purpose | When to use it |
+| :--- | :--- | :--- |
+| **Valgrind** | Memory Leaks | When you suspect `malloc` isn't being `free`'d (or heap/stack in general). |
+| **GDB** | Logic Debugging | When your code runs but gives the wrong math. |
+| **Cppcheck** | Bug Hunting | Before you even run the code. |
+| **ASan** | Memory Crashes | To find exactly where a "Segfault" happened. |
+| **Flawfinder** | Vuln Scanner | Scans code for CWE (Common Weakness Enumerations). |
