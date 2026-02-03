@@ -26,6 +26,8 @@ In C programming, the Heap (not an acronym, just a name for a "pile" of memory) 
 Unlike the Stack, which handles local variables automatically, the Heap is a "free-for-all" area where you, the programmer, manually request and release memory during the execution of a program.
 ```
 
+As the days go by, this app grows into a legitimate hotel checkin-checkout system, with plans for adding a tax rate, pricing, adjustments etc all to the register.
+
 ## Demo/Screenshots
 ![Main Menui](screenshots/TheHEAPHotel1.png)
 ![Check-out](screenshots/TheHEAPHotel2.png)
