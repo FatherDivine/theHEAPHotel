@@ -77,6 +77,32 @@ The theHEAPHotel project is licensed under the MIT License. See the LICENSE file
 
 ## Notes
 
+To compile for greatest portability, we force use of C99 (the 1999 C standard) when we compile:
+
+```bash
+gcc -std=c99 -pedantic -Wall -o theHEAPHotel theHEAPHotel.c
+``` 
+
+<br>If you want to go even older (1990 standard):
+
+```bash
+gcc -std=c90 -pedantic -Wall -o theHEAPHotel theHEAPHotel.c
+```
+<br>You could also use a Makefile:
+
+```bash
+CC = gcc
+CFLAGS = -std=c99 -pedantic -Wall
+# ... rest of makefile
+
+```
+<br>Lastly, on POSIX-compliant systems (like ParrotOS) there's already a c99 utility that acts as a wrapper aroung gcc:
+
+```bash
+c99 theHEAPHotel.c -o theHEAPHotel
+```
+
+<br><br>
 Great tools I learned about along the way to help C coders:
 
 
